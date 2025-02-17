@@ -47,15 +47,14 @@ function remove(i) {
 // Also, include an image element with an onclick event that calls 'remove()' to remove the item.
 // Add a class name to the <li> element for styling.
  // Step 9: Append the <li> element to the 'listItem' container so it appears on the webpage.
-function showList(){
-    listItem.ineerHTML = "";
-    bucketList.forEach(iteam,index) => {
+function showList() {
+    listItem.innerHTML = ""; // Clear existing items
+    bucketList.forEach((item, index) => {
         var li = document.createElement('li');
         li.className = "list";
-        li.innerHTML = ${ITEM} <button class="checked" onclick="remove"(${index})
+        li.innerHTML = `${item} <button class="checked" onclick="remove(${index})">✔</button>`;
         listItem.appendChild(li);
-    }
-  
+    });
 }
 /**
  * Function to reset the bucket list.
@@ -67,5 +66,5 @@ function showList(){
 function reset() {
     bucketList = [];
     showList();
-  
 }
+
