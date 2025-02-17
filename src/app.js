@@ -16,6 +16,10 @@ var listItem = document.getElementById('list-container');
 
 
 function addValues() {
+    var inputValue = document.getElementById('input-filed').value.trim();
+    if (inputValue !=="");
+        document.getElementById('input-field').value = "";
+        showList();
 
 }
 
@@ -28,6 +32,8 @@ function addValues() {
 // 'splice()' takes two arguments: the index and the number of items to remove.
 // Step 5: Update the displayed list after the item is removed by calling 'showList()'.
 function remove(i) {
+    bucketList.splice(i,1);
+    showList();
  
 }
 /**
@@ -42,7 +48,13 @@ function remove(i) {
 // Add a class name to the <li> element for styling.
  // Step 9: Append the <li> element to the 'listItem' container so it appears on the webpage.
 function showList(){
-
+    listItem.ineerHTML = "";
+    bucketList.forEach(iteam,index) => {
+        var li = document.createElement('li');
+        li.className = "list";
+        li.innerHTML = ${ITEM} <button class="checked" onclick="remove"(${index})
+        listItem.appendChild(li);
+    }
   
 }
 /**
@@ -53,5 +65,7 @@ function showList(){
 // Step 10: Clear the 'bucketList' array by setting it to an empty array.
  // Step 11: Update the displayed list by calling 'showList()'.
 function reset() {
+    bucketList = [];
+    showList();
   
 }
